@@ -4,7 +4,7 @@
 
 void CyanideAIModule::onStart()
 {
-	BWAPI::Broodwar->printf("Hello world!");
+    BWAPI::Broodwar->enableFlag(BWAPI::Flag::UserInput);
 }
 
 void CyanideAIModule::onEnd(bool isWinner)
@@ -53,10 +53,12 @@ void CyanideAIModule::onUnitCreate(BWAPI::Unit* unit)
 
 void CyanideAIModule::onUnitDestroy(BWAPI::Unit* unit)
 {
+    WorkerManager::Instance().onUnitDestroy(unit);
 }
 
 void CyanideAIModule::onUnitMorph(BWAPI::Unit* unit)
 {
+    WorkerManager::Instance().onUnitMorph(unit);
 }
 
 void CyanideAIModule::onUnitRenegade(BWAPI::Unit* unit)
@@ -69,4 +71,5 @@ void CyanideAIModule::onSaveGame(std::string gameName)
 
 void CyanideAIModule::onUnitComplete(BWAPI::Unit *unit)
 {
+    WorkerManager::Instance().onUnitComplete(unit);
 }

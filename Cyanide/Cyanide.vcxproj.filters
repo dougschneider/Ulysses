@@ -13,12 +13,18 @@
     <ClCompile Include="Dll.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="WorkerManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CyanideAIModule.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Common.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerManager.h">
       <Filter>Source Files</Filter>
     </ClInclude>
   </ItemGroup>
