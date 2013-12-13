@@ -6,20 +6,20 @@ WorkerManager& WorkerManager::Instance()
     return instance;
 }
 
-void WorkerManager::onUnitMorph(BWAPI::Unit* unit)
+void WorkerManager::onUnitMorph(Unit* unit)
 {
-    if(unit->getType().isWorker() && unit->getPlayer() == BWAPI::Broodwar->self())
+    if(unit->getType().isWorker() && unit->getPlayer() == *Player::self())
         workers.insert(unit);
 }
 
-void WorkerManager::onUnitComplete(BWAPI::Unit* unit)
+void WorkerManager::onUnitComplete(Unit* unit)
 {
-    if(unit->getType().isWorker() && unit->getPlayer() == BWAPI::Broodwar->self())
+    if(unit->getType().isWorker() && unit->getPlayer() == *Player::self())
         workers.insert(unit);
 }
 
-void WorkerManager::onUnitDestroy(BWAPI::Unit* unit)
+void WorkerManager::onUnitDestroy(Unit* unit)
 {
-    if(unit->getType().isWorker() && unit->getPlayer() == BWAPI::Broodwar->self())
+    if(unit->getType().isWorker() && unit->getPlayer() == *Player::self())
         workers.erase(unit);
 }

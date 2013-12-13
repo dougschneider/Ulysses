@@ -1,6 +1,8 @@
 #include "CyanideAIModule.h"
 
-#include "Common.h"
+#include "Unit.h"
+#include "Player.h"
+#include "UnitType.h"
 
 void CyanideAIModule::onStart()
 {
@@ -9,6 +11,9 @@ void CyanideAIModule::onStart()
 
 void CyanideAIModule::onEnd(bool isWinner)
 {
+    Player::emptyCache();
+    Unit::emptyCache();
+	UnitType::emptyCache();
 }
 
 void CyanideAIModule::onFrame()
@@ -53,12 +58,12 @@ void CyanideAIModule::onUnitCreate(BWAPI::Unit* unit)
 
 void CyanideAIModule::onUnitDestroy(BWAPI::Unit* unit)
 {
-    WorkerManager::Instance().onUnitDestroy(unit);
+    WorkerManager::Instance().onUnitDestroy(Unit::getUnit(unit));
 }
 
 void CyanideAIModule::onUnitMorph(BWAPI::Unit* unit)
 {
-    WorkerManager::Instance().onUnitMorph(unit);
+    WorkerManager::Instance().onUnitMorph(Unit::getUnit(unit));
 }
 
 void CyanideAIModule::onUnitRenegade(BWAPI::Unit* unit)
@@ -71,5 +76,5 @@ void CyanideAIModule::onSaveGame(std::string gameName)
 
 void CyanideAIModule::onUnitComplete(BWAPI::Unit *unit)
 {
-    WorkerManager::Instance().onUnitComplete(unit);
+    WorkerManager::Instance().onUnitComplete(Unit::getUnit(unit));
 }

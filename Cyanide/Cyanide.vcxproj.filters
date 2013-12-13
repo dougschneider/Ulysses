@@ -5,6 +5,9 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
+    <Filter Include="Source Files\boundary">
+      <UniqueIdentifier>{e94f55d1-1d46-4219-ae33-0768cc2747e0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CyanideAIModule.cpp">
@@ -16,6 +19,15 @@
     <ClCompile Include="WorkerManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Source Files\boundary</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitType.cpp">
+      <Filter>Source Files\boundary</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\boundary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CyanideAIModule.h">
@@ -26,6 +38,15 @@
     </ClInclude>
     <ClInclude Include="WorkerManager.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Source Files\boundary</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitType.h">
+      <Filter>Source Files\boundary</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\boundary</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

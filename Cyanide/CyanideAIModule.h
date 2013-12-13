@@ -1,5 +1,7 @@
 #pragma once
 
+#include <BWAPI.h>
+
 #include "WorkerManager.h"
 
 class CyanideAIModule : public BWAPI::AIModule

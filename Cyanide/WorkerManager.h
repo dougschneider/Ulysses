@@ -1,17 +1,18 @@
 #pragma once
 
 #include "Common.h"
+#include "Unit.h"
 
 class WorkerManager
 {
 public:
     static WorkerManager& Instance();
 
-    void onUnitMorph(BWAPI::Unit* unit);
-    void onUnitComplete(BWAPI::Unit* unit);
-    void onUnitDestroy(BWAPI::Unit* unit);
+    void onUnitMorph(Unit* unit);
+    void onUnitComplete(Unit* unit);
+    void onUnitDestroy(Unit* unit);
 
 private:
-    std::set<BWAPI::Unit*> workers;
+    std::set<Unit*> workers;
 };
 

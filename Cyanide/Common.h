@@ -1,4 +1,7 @@
 #pragma once
 
-#include <BWAPI.h>
+// BOOST
 #include <boost\foreach.hpp>
+
+// STL
+#include <set>
