@@ -37,3 +37,18 @@ const Player& Unit::getPlayer() const
 {
     return *player;
 }
+
+int Unit::getResources() const
+{
+    return unit->getResources();
+}
+
+void Unit::gather(Unit* target)
+{
+    unit->gather(target->unit);
+}
+
+void Unit::stop()
+{
+    unit->stop();
+}

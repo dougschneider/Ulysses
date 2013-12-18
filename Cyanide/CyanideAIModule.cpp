@@ -3,6 +3,7 @@
 #include "Unit.h"
 #include "Player.h"
 #include "UnitType.h"
+#include "ResourceManager.h"
 
 void CyanideAIModule::onStart()
 {
@@ -46,6 +47,7 @@ void CyanideAIModule::onUnitEvade(BWAPI::Unit* unit)
 
 void CyanideAIModule::onUnitShow(BWAPI::Unit* unit)
 {
+    ResourceManager::Instance().onUnitShow(Unit::getUnit(unit));
 }
 
 void CyanideAIModule::onUnitHide(BWAPI::Unit* unit)

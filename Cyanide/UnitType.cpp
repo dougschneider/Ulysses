@@ -30,3 +30,8 @@ bool UnitType::isWorker() const
 {
 	return unitType.isWorker();
 }
+
+bool UnitType::isMineralField() const
+{
+    return unitType.isMineralField();
+}

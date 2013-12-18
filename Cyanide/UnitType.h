@@ -9,6 +9,7 @@ public:
     static void emptyCache();
 
     bool isWorker() const;
+    bool isMineralField() const;
 
 private:
     static std::map<int, UnitType*> unitTypeMap;

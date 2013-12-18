@@ -5,3 +5,6 @@
 
 // STL
 #include <set>
+
+// Other
+#include <cassert>

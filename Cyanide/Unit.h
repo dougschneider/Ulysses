@@ -14,6 +14,10 @@ public:
 
     const UnitType& getType() const;
     const Player& getPlayer() const;
+    int getResources() const;
+
+    void gather(Unit* target);
+    void stop();
 
 private:
     static std::map<int, Unit*> unitMap;
