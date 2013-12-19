@@ -34,6 +34,15 @@
     <ClCompile Include="MineralField.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Observable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Observer.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>Source Files\boundary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CyanideAIModule.h">
@@ -59,6 +68,15 @@
     </ClInclude>
     <ClInclude Include="MineralField.h">
       <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Observable.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Observer.h">
+      <Filter>Source Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Source Files\boundary</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,7 +6,14 @@ ResourceManager& ResourceManager::Instance()
     return instance;
 }
 
-void ResourceManager::onUnitShow(Unit* unit)
+void ResourceManager::setObservable(Observable* observable)
+{
+    Observer::setObservable(observable);
+
+    observable->addObserver(this, Observable::UNIT_SHOW);
+}
+
+void ResourceManager::handleUnitShow(Unit* unit)
 {
 	if(unit->getType().isMineralField())
         assignMineralField(unit);

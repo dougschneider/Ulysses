@@ -1,16 +1,19 @@
 #pragma once
 
 #include "Common.h"
+#include "Observer.h"
 #include "Unit.h"
 
-class WorkerManager
+class WorkerManager : public Observer
 {
 public:
     static WorkerManager& Instance();
 
-    void onUnitMorph(Unit* unit);
-    void onUnitComplete(Unit* unit);
-    void onUnitDestroy(Unit* unit);
+    void setObservable(Observable* observable);
+
+    void handleUnitMorph(Unit* unit);
+    void handleUnitComplete(Unit* unit);
+    void handleUnitDestroy(Unit* unit);
 
 private:
     std::set<Unit*> workers;

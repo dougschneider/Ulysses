@@ -3,8 +3,9 @@
 #include <BWAPI.h>
 
 #include "WorkerManager.h"
+#include "Observable.h"
 
-class CyanideAIModule : public BWAPI::AIModule
+class CyanideAIModule : public BWAPI::AIModule, public Observable
 {
 public:
     virtual void onStart();
