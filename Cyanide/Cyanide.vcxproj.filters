@@ -43,6 +43,9 @@
     <ClCompile Include="Position.cpp">
       <Filter>Source Files\boundary</Filter>
     </ClCompile>
+    <ClCompile Include="Game.cpp">
+      <Filter>Source Files\boundary</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CyanideAIModule.h">
@@ -76,6 +79,9 @@
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Position.h">
+      <Filter>Source Files\boundary</Filter>
+    </ClInclude>
+    <ClInclude Include="Game.h">
       <Filter>Source Files\boundary</Filter>
     </ClInclude>
   </ItemGroup>

@@ -68,6 +68,7 @@
   <ItemGroup>
     <ClInclude Include="Common.h" />
     <ClInclude Include="CyanideAIModule.h" />
+    <ClInclude Include="Game.h" />
     <ClInclude Include="MineralField.h" />
     <ClInclude Include="Observable.h" />
     <ClInclude Include="Observer.h" />
@@ -81,6 +82,7 @@
   <ItemGroup>
     <ClCompile Include="CyanideAIModule.cpp" />
     <ClCompile Include="Dll.cpp" />
+    <ClCompile Include="Game.cpp" />
     <ClCompile Include="MineralField.cpp" />
     <ClCompile Include="Observable.cpp" />
     <ClCompile Include="Observer.cpp" />

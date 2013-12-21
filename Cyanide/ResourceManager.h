@@ -13,8 +13,8 @@ public:
 
     void setObservable(Observable* observable);
 
+    void handleStart();
     void handleFrame();
-    void handleUnitShow(Unit* unit);
 
     void assignWorker(Unit* worker);
     void unassignWorker(Unit* worker);

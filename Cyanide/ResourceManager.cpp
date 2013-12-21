@@ -1,5 +1,7 @@
 #include "ResourceManager.h"
 
+#include "Game.h"
+
 ResourceManager& ResourceManager::Instance()
 {
     static ResourceManager instance;
@@ -16,8 +18,26 @@ void ResourceManager::setObservable(Observable* observable)
 {
     Observer::setObservable(observable);
 
+    observable->addObserver(this, Observable::START);
     observable->addObserver(this, Observable::FRAME);
-    observable->addObserver(this, Observable::UNIT_SHOW);
+}
+
+void ResourceManager::handleStart()
+{
+    BOOST_FOREACH(Unit* unit, Game::getAllUnits())
+	{
+		if(unit->getType().isMineralField())
+		{
+            assignMineralField(unit);
+		}
+	}
+}
+
+void ResourceManager::assignMineralField(Unit* mineralField)
+{
+    MineralField field = MineralField(mineralField);
+    if(mineralFields.find(field) == mineralFields.end())
+        mineralFields.insert(field);
 }
 
 void ResourceManager::handleFrame()
@@ -35,19 +55,6 @@ void ResourceManager::ensureWorkersAreGatheringResources()
         if(!worker->isGatheringMinerals())
             worker->gather(mineralField->getMineralField());
 	}
-}
-
-void ResourceManager::handleUnitShow(Unit* unit)
-{
-	if(unit->getType().isMineralField())
-        assignMineralField(unit);
-}
-
-void ResourceManager::assignMineralField(Unit* mineralField)
-{
-    MineralField field = MineralField(mineralField);
-    if(mineralFields.find(field) == mineralFields.end())
-        mineralFields.insert(field);
 }
 
 void ResourceManager::assignWorker(Unit* worker)
