@@ -17,6 +17,7 @@ public:
     int getResources() const;
 
     void gather(Unit* target);
+    bool isGatheringMinerals();
     void stop();
 
 private:

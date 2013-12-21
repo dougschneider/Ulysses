@@ -46,6 +46,11 @@ void Unit::gather(Unit* target)
     unit->gather(target->unit);
 }
 
+bool Unit::isGatheringMinerals()
+{
+    return unit->isGatheringMinerals();
+}
+
 void Unit::stop()
 {
     unit->stop();

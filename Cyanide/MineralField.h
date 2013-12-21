@@ -11,8 +11,10 @@ public:
 
     void assignWorker(Unit* worker);
     void unassignWorker(Unit* worker);
-    size_t getNumWorkers();
-    int getRemainingMinerals();
+    size_t getNumWorkers() const;
+    int getRemainingMinerals() const;
+
+    Unit* getMineralField() const;
 
 private:
     Unit* mineralField;

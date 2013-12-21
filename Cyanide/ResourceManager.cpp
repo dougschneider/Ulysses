@@ -10,7 +10,25 @@ void ResourceManager::setObservable(Observable* observable)
 {
     Observer::setObservable(observable);
 
+    observable->addObserver(this, Observable::FRAME);
     observable->addObserver(this, Observable::UNIT_SHOW);
+}
+
+void ResourceManager::handleFrame()
+{
+    ensureWorkersAreGatheringResources();
+}
+
+void ResourceManager::ensureWorkersAreGatheringResources()
+{
+    std::map<Unit*, MineralField*>::iterator it = mineralWorkersMap.begin(), end = mineralWorkersMap.end();
+    for(; it != end; ++it)
+	{
+        Unit* worker = it->first;
+        MineralField* mineralField = it->second;
+        if(!worker->isGatheringMinerals())
+            worker->gather(mineralField->getMineralField());
+	}
 }
 
 void ResourceManager::handleUnitShow(Unit* unit)
@@ -21,8 +39,10 @@ void ResourceManager::handleUnitShow(Unit* unit)
 
 void ResourceManager::assignWorker(Unit* worker)
 {
+    assert(worker->getType().isWorker());
     MineralField* mineralField = getOptimalMineralFieldForWorker(worker);
     mineralField->assignWorker(worker);
+    worker->gather(mineralField->getMineralField());
     mineralWorkersMap.insert(std::pair<Unit*, MineralField*>(worker, mineralField));
 }
 
@@ -40,7 +60,6 @@ MineralField* ResourceManager::getOptimalMineralFieldForWorker(Unit* worker)
 		}
 	}
 
-    BWAPI::Broodwar->printf("Assigning to: %d", optimalMineralField->getNumWorkers());
     return optimalMineralField;
 }
 
@@ -50,6 +69,7 @@ void ResourceManager::unassignWorker(Unit* worker)
     assert(it != mineralWorkersMap.end());
     it->second->unassignWorker(worker);
     mineralWorkersMap.erase(worker);
+    worker->stop();
 }
 
 void ResourceManager::assignMineralField(Unit* mineralField)

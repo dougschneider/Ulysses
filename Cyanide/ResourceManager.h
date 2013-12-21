@@ -11,6 +11,7 @@ public:
 
     void setObservable(Observable* observable);
 
+    void handleFrame();
     void handleUnitShow(Unit* unit);
 
     void assignWorker(Unit* worker);
@@ -21,7 +22,8 @@ public:
 
 private:
 
-    MineralField* ResourceManager::getOptimalMineralFieldForWorker(Unit* worker);
+    MineralField* getOptimalMineralFieldForWorker(Unit* worker);
+    void ensureWorkersAreGatheringResources();
 
     std::map<Unit*, MineralField*> mineralWorkersMap;
     std::set<MineralField> mineralFields;
