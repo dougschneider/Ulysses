@@ -21,6 +21,7 @@ void CyanideAIModule::onEnd(bool isWinner)
     Player::emptyCache();
     Unit::emptyCache();
 	UnitType::emptyCache();
+    ResourceManager::Instance().emptyCache();
 
     Observable::notifyObserversOfEnd(isWinner);
 }

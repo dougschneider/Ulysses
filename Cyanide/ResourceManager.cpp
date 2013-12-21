@@ -6,6 +6,12 @@ ResourceManager& ResourceManager::Instance()
     return instance;
 }
 
+void ResourceManager::emptyCache()
+{
+    mineralFields.clear();
+    mineralWorkersMap.clear();
+}
+
 void ResourceManager::setObservable(Observable* observable)
 {
     Observer::setObservable(observable);
@@ -37,6 +43,13 @@ void ResourceManager::handleUnitShow(Unit* unit)
         assignMineralField(unit);
 }
 
+void ResourceManager::assignMineralField(Unit* mineralField)
+{
+    MineralField field = MineralField(mineralField);
+    if(mineralFields.find(field) == mineralFields.end())
+        mineralFields.insert(field);
+}
+
 void ResourceManager::assignWorker(Unit* worker)
 {
     assert(worker->getType().isWorker());
@@ -48,6 +61,7 @@ void ResourceManager::assignWorker(Unit* worker)
 
 MineralField* ResourceManager::getOptimalMineralFieldForWorker(Unit* worker)
 {
+    assert(mineralFields.size() > 0);
     MineralField* optimalMineralField;
     int minWorkers = -1;
     BOOST_FOREACH(MineralField& mineralField, mineralFields)
@@ -70,13 +84,6 @@ void ResourceManager::unassignWorker(Unit* worker)
     it->second->unassignWorker(worker);
     mineralWorkersMap.erase(worker);
     worker->stop();
-}
-
-void ResourceManager::assignMineralField(Unit* mineralField)
-{
-    MineralField field = MineralField(mineralField);
-    if(mineralFields.find(field) == mineralFields.end())
-        mineralFields.insert(field);
 }
 
 void ResourceManager::unassignMineralField(Unit* mineralField)

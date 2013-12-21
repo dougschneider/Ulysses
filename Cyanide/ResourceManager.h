@@ -9,6 +9,8 @@ class ResourceManager : public Observer
 public:
     static ResourceManager& Instance();
 
+    void ResourceManager::emptyCache();
+
     void setObservable(Observable* observable);
 
     void handleFrame();
