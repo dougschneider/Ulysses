@@ -25,7 +25,5 @@ private:
     Unit(BWAPI::Unit* unit);
 
     BWAPI::Unit* unit;
-    UnitType* type;
-    Player* player;
 };
 

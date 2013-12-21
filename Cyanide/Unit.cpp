@@ -24,18 +24,16 @@ void Unit::emptyCache()
 Unit::Unit(BWAPI::Unit* unit) :
     unit(unit)
 {
-    type = UnitType::getUnitType(unit->getType());
-    player = Player::getPlayer(unit->getPlayer());
 }
 
 const UnitType& Unit::getType() const
 {
-    return *type;
+    return *UnitType::getUnitType(unit->getType());
 }
 
 const Player& Unit::getPlayer() const
 {
-    return *player;
+    return *Player::getPlayer(unit->getPlayer());
 }
 
 int Unit::getResources() const
