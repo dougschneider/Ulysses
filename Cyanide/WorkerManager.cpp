@@ -23,7 +23,10 @@ void WorkerManager::handleUnitMorph(Unit* unit)
         workers.insert(unit);
         ResourceManager::Instance().assignWorker(unit);
     }
-    // TODO: what about workers becoming buildings?
+	else if(workers.find(unit) != workers.end())
+	{
+        workers.erase(unit);
+	}
 }
 
 void WorkerManager::handleUnitComplete(Unit* unit)
