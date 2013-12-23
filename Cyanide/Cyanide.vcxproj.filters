@@ -5,8 +5,14 @@
       <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
       <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
     </Filter>
-    <Filter Include="Source Files\boundary">
+    <Filter Include="Source Files\Boundary">
       <UniqueIdentifier>{e94f55d1-1d46-4219-ae33-0768cc2747e0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Boundary\BWAPI">
+      <UniqueIdentifier>{a9dc3dcb-99fc-4add-8d2a-12499be37a26}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Boundary\BWTA">
+      <UniqueIdentifier>{62b7ef2f-4b10-4a61-8282-912128ae9f8c}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -18,15 +24,6 @@
     </ClCompile>
     <ClCompile Include="WorkerManager.cpp">
       <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Unit.cpp">
-      <Filter>Source Files\boundary</Filter>
-    </ClCompile>
-    <ClCompile Include="UnitType.cpp">
-      <Filter>Source Files\boundary</Filter>
-    </ClCompile>
-    <ClCompile Include="Player.cpp">
-      <Filter>Source Files\boundary</Filter>
     </ClCompile>
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files</Filter>
@@ -40,11 +37,23 @@
     <ClCompile Include="Observer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="Position.cpp">
-      <Filter>Source Files\boundary</Filter>
-    </ClCompile>
     <ClCompile Include="Game.cpp">
-      <Filter>Source Files\boundary</Filter>
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="Player.cpp">
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="Position.cpp">
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="Unit.cpp">
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="UnitType.cpp">
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClCompile>
+    <ClCompile Include="BaseLocation.cpp">
+      <Filter>Source Files\Boundary\BWTA</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,15 +65,6 @@
     </ClInclude>
     <ClInclude Include="WorkerManager.h">
       <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Unit.h">
-      <Filter>Source Files\boundary</Filter>
-    </ClInclude>
-    <ClInclude Include="UnitType.h">
-      <Filter>Source Files\boundary</Filter>
-    </ClInclude>
-    <ClInclude Include="Player.h">
-      <Filter>Source Files\boundary</Filter>
     </ClInclude>
     <ClInclude Include="ResourceManager.h">
       <Filter>Source Files</Filter>
@@ -78,11 +78,23 @@
     <ClInclude Include="Observer.h">
       <Filter>Source Files</Filter>
     </ClInclude>
-    <ClInclude Include="Position.h">
-      <Filter>Source Files\boundary</Filter>
-    </ClInclude>
     <ClInclude Include="Game.h">
-      <Filter>Source Files\boundary</Filter>
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="Player.h">
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="Position.h">
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="Unit.h">
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="UnitType.h">
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClInclude>
+    <ClInclude Include="BaseLocation.h">
+      <Filter>Source Files\Boundary\BWTA</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

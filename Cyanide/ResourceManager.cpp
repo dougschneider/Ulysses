@@ -1,6 +1,7 @@
 #include "ResourceManager.h"
 
 #include "Game.h"
+#include "BaseLocation.h"
 
 ResourceManager& ResourceManager::Instance()
 {
@@ -69,19 +70,42 @@ void ResourceManager::assignWorker(Unit* worker)
 MineralField* ResourceManager::getOptimalMineralFieldForWorker(Unit* worker)
 {
     assert(mineralFields.size() > 0);
-    MineralField* optimalMineralField;
-    int minWorkers = -1;
+    std::set<MineralField*> mineralFields = getMineralFieldsNearStartLocation();
+    return getMineralFieldWithLeastWorkers(mineralFields);
+
+}
+
+std::set<MineralField*> ResourceManager::getMineralFieldsNearStartLocation()
+{
+    std::set<MineralField*> mineralFieldsNearStartLocation;
+    BaseLocation* startLocation = Player::self()->getStartLocation();
     BOOST_FOREACH(MineralField& mineralField, mineralFields)
 	{
-        int numWorkers = mineralField.getNumWorkers();
-        if(minWorkers == -1 || numWorkers < minWorkers)
+        BOOST_FOREACH(Unit* unit, startLocation->getStaticMinerals())
 		{
-            optimalMineralField = &mineralField;
-            minWorkers = numWorkers;
+            if(mineralField.getMineralField() == unit)
+                mineralFieldsNearStartLocation.insert(&mineralField);
+		}
+	}
+    return mineralFieldsNearStartLocation;
+}
+
+MineralField* ResourceManager::getMineralFieldWithLeastWorkers(std::set<MineralField*> mineralFields)
+{
+    assert(mineralFields.size() > 0);
+    MineralField* mineralFieldWithLeastWorkers;
+    int leastWorkers = -1;
+    BOOST_FOREACH(MineralField* mineralField, mineralFields)
+	{
+        int numWorkers = mineralField->getNumWorkers();
+        if(leastWorkers == -1 || numWorkers < leastWorkers)
+		{
+            mineralFieldWithLeastWorkers = mineralField;
+            leastWorkers = numWorkers;
 		}
 	}
 
-    return optimalMineralField;
+    return mineralFieldWithLeastWorkers;
 }
 
 void ResourceManager::unassignWorker(Unit* worker)

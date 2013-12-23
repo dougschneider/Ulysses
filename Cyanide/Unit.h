@@ -6,6 +6,8 @@
 #include "UnitType.h"
 #include "Player.h"
 
+class Player;
+
 class Unit
 {
 public:

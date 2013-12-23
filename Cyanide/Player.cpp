@@ -35,3 +35,9 @@ bool Player::operator==(const Player& player) const
 {
     return this->player->getID() == player.player->getID();
 }
+
+BaseLocation* Player::getStartLocation()
+{
+    // TODO: broken (BWTA::getStartLocation(player) is returning NULL)
+    return BaseLocation::getBaseLocation(BWTA::getStartLocation(player));
+}

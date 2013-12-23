@@ -66,6 +66,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BaseLocation.h" />
     <ClInclude Include="Common.h" />
     <ClInclude Include="CyanideAIModule.h" />
     <ClInclude Include="Game.h" />
@@ -80,6 +81,7 @@
     <ClInclude Include="WorkerManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BaseLocation.cpp" />
     <ClCompile Include="CyanideAIModule.cpp" />
     <ClCompile Include="Dll.cpp" />
     <ClCompile Include="Game.cpp" />

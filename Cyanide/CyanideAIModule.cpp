@@ -10,6 +10,9 @@ void CyanideAIModule::onStart()
 {
     BWAPI::Broodwar->enableFlag(BWAPI::Flag::UserInput);
 
+    BWTA::readMap();
+    BWTA::analyze();
+
     WorkerManager::Instance().setObservable(this);
     ResourceManager::Instance().setObservable(this);
 
@@ -21,6 +24,7 @@ void CyanideAIModule::onEnd(bool isWinner)
     Player::emptyCache();
     Unit::emptyCache();
 	UnitType::emptyCache();
+    BaseLocation::emptyCache();
     ResourceManager::Instance().emptyCache();
 
     Observable::notifyObserversOfEnd(isWinner);

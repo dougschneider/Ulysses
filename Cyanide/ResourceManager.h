@@ -25,6 +25,8 @@ public:
 private:
 
     MineralField* getOptimalMineralFieldForWorker(Unit* worker);
+    std::set<MineralField*> getMineralFieldsNearStartLocation();
+    MineralField* getMineralFieldWithLeastWorkers(std::set<MineralField*> mineralFields);
     void ensureWorkersAreGatheringResources();
 
     std::map<Unit*, MineralField*> mineralWorkersMap;
