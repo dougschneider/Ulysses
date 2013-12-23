@@ -9,12 +9,6 @@ ResourceManager& ResourceManager::Instance()
     return instance;
 }
 
-void ResourceManager::emptyCache()
-{
-    mineralFields.clear();
-    mineralWorkersMap.clear();
-}
-
 void ResourceManager::setObservable(Observable* observable)
 {
     Observer::setObservable(observable);
@@ -39,6 +33,17 @@ void ResourceManager::assignMineralField(Unit* mineralField)
     MineralField field = MineralField(mineralField);
     if(mineralFields.find(field) == mineralFields.end())
         mineralFields.insert(field);
+}
+
+void ResourceManager::handleEnd()
+{
+    emptyCache();
+}
+
+void ResourceManager::emptyCache()
+{
+    mineralFields.clear();
+    mineralWorkersMap.clear();
 }
 
 void ResourceManager::handleFrame()

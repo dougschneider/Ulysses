@@ -9,18 +9,16 @@ class ResourceManager : public Observer
 public:
     static ResourceManager& Instance();
 
-    void ResourceManager::emptyCache();
-
+    void emptyCache();
     void setObservable(Observable* observable);
-
-    void handleStart();
-    void handleFrame();
-
     void assignWorker(Unit* worker);
     void unassignWorker(Unit* worker);
-
     void assignMineralField(Unit* mineralField);
     void unassignMineralField(Unit* mineralField);
+
+    void handleStart();
+    void handleEnd();
+    void handleFrame();
 
 private:
 
