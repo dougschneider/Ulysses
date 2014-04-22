@@ -64,6 +64,9 @@
     <ClCompile Include="WorkerManager.cpp">
       <Filter>Source Files\Managers\WorkerManager</Filter>
     </ClCompile>
+    <ClCompile Include="TechType.cpp">
+      <Filter>Source Files\Boundary\BWAPI</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CyanideAIModule.h">
@@ -104,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="WorkerManager.h">
       <Filter>Source Files\Managers\WorkerManager</Filter>
+    </ClInclude>
+    <ClInclude Include="TechType.h">
+      <Filter>Source Files\Boundary\BWAPI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

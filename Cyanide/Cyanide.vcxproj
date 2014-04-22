@@ -76,6 +76,7 @@
     <ClInclude Include="Player.h" />
     <ClInclude Include="Position.h" />
     <ClInclude Include="ResourceManager.h" />
+    <ClInclude Include="TechType.h" />
     <ClInclude Include="Unit.h" />
     <ClInclude Include="UnitType.h" />
     <ClInclude Include="WorkerManager.h" />
@@ -91,6 +92,7 @@
     <ClCompile Include="Player.cpp" />
     <ClCompile Include="Position.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
+    <ClCompile Include="TechType.cpp" />
     <ClCompile Include="Unit.cpp" />
     <ClCompile Include="UnitType.cpp" />
     <ClCompile Include="WorkerManager.cpp" />

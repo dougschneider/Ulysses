@@ -5,6 +5,7 @@
 #include "ResourceManager.h"
 #include "Unit.h"
 #include "UnitType.h"
+#include "TechType.h"
 
 void CyanideAIModule::onStart()
 {
@@ -24,6 +25,7 @@ void CyanideAIModule::onEnd(bool isWinner)
     Player::emptyCache();
     Unit::emptyCache();
 	UnitType::emptyCache();
+    TechType::emptyCache();
     BaseLocation::emptyCache();
 
     Observable::notifyObserversOfEnd(isWinner);
