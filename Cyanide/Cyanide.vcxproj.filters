@@ -14,21 +14,21 @@
     <Filter Include="Source Files\Boundary\BWTA">
       <UniqueIdentifier>{62b7ef2f-4b10-4a61-8282-912128ae9f8c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\Managers">
+      <UniqueIdentifier>{4f6674c2-1514-4d4f-9bc5-393848bdba7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\ResourceManager">
+      <UniqueIdentifier>{a57f6b52-eacf-4b4f-a8a2-7b7ae0ce1471}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\Managers\WorkerManager">
+      <UniqueIdentifier>{2b6120dd-16c5-433e-9abe-dab9df65aab6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="CyanideAIModule.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Dll.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="WorkerManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="MineralField.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Observable.cpp">
@@ -55,21 +55,21 @@
     <ClCompile Include="BaseLocation.cpp">
       <Filter>Source Files\Boundary\BWTA</Filter>
     </ClCompile>
+    <ClCompile Include="MineralField.cpp">
+      <Filter>Source Files\Managers\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Source Files\Managers\ResourceManager</Filter>
+    </ClCompile>
+    <ClCompile Include="WorkerManager.cpp">
+      <Filter>Source Files\Managers\WorkerManager</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="CyanideAIModule.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Common.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WorkerManager.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ResourceManager.h">
-      <Filter>Source Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MineralField.h">
       <Filter>Source Files</Filter>
     </ClInclude>
     <ClInclude Include="Observable.h">
@@ -95,6 +95,15 @@
     </ClInclude>
     <ClInclude Include="BaseLocation.h">
       <Filter>Source Files\Boundary\BWTA</Filter>
+    </ClInclude>
+    <ClInclude Include="MineralField.h">
+      <Filter>Source Files\Managers\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
+      <Filter>Source Files\Managers\ResourceManager</Filter>
+    </ClInclude>
+    <ClInclude Include="WorkerManager.h">
+      <Filter>Source Files\Managers\WorkerManager</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
