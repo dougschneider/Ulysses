@@ -1,23 +1,22 @@
 #pragma once
 
-#include "Unit.h"
+#include "Common.h"
 
 class MineralField
 {
 public:
-	MineralField(Unit*);
+	MineralField(BWAPI::Unit*);
 
     bool operator<(const MineralField& rhs) const;
 
-    void assignWorker(Unit* worker);
-    void unassignWorker(Unit* worker);
+    void assignWorker(BWAPI::Unit* worker);
+    void unassignWorker(BWAPI::Unit* worker);
     size_t getNumWorkers() const;
     int getRemainingMinerals() const;
 
-    Unit* getMineralField() const;
+    BWAPI::Unit* getMineralField() const;
 
 private:
-    Unit* mineralField;
-    std::set<Unit*> assignedWorkers;
+    BWAPI::Unit* mineralField;
+    std::set<BWAPI::Unit*> assignedWorkers;
 };
-

@@ -1,8 +1,5 @@
 #include "ResourceManager.h"
 
-#include "Game.h"
-#include "BaseLocation.h"
-
 ResourceManager& ResourceManager::Instance()
 {
     static ResourceManager instance;
@@ -19,7 +16,7 @@ void ResourceManager::setObservable(Observable* observable)
 
 void ResourceManager::handleStart()
 {
-    BOOST_FOREACH(Unit* unit, Game::getAllUnits())
+	BOOST_FOREACH(BWAPI::Unit* unit, BWAPI::Broodwar->getAllUnits())
 	{
 		if(unit->getType().isMineralField())
 		{
@@ -28,7 +25,7 @@ void ResourceManager::handleStart()
 	}
 }
 
-void ResourceManager::assignMineralField(Unit* mineralField)
+void ResourceManager::assignMineralField(BWAPI::Unit* mineralField)
 {
     MineralField field = MineralField(mineralField);
     if(mineralFields.find(field) == mineralFields.end())
@@ -53,26 +50,26 @@ void ResourceManager::handleFrame()
 
 void ResourceManager::ensureWorkersAreGatheringResources()
 {
-    std::map<Unit*, MineralField*>::iterator it = mineralWorkersMap.begin(), end = mineralWorkersMap.end();
+    std::map<BWAPI::Unit*, MineralField*>::iterator it = mineralWorkersMap.begin(), end = mineralWorkersMap.end();
     for(; it != end; ++it)
 	{
-        Unit* worker = it->first;
+        BWAPI::Unit* worker = it->first;
         MineralField* mineralField = it->second;
         if(!worker->isGatheringMinerals())
             worker->gather(mineralField->getMineralField());
 	}
 }
 
-void ResourceManager::assignWorker(Unit* worker)
+void ResourceManager::assignWorker(BWAPI::Unit* worker)
 {
     assert(worker->getType().isWorker());
     MineralField* mineralField = getOptimalMineralFieldForWorker(worker);
     mineralField->assignWorker(worker);
     worker->gather(mineralField->getMineralField());
-    mineralWorkersMap.insert(std::pair<Unit*, MineralField*>(worker, mineralField));
+    mineralWorkersMap.insert(std::pair<BWAPI::Unit*, MineralField*>(worker, mineralField));
 }
 
-MineralField* ResourceManager::getOptimalMineralFieldForWorker(Unit* worker)
+MineralField* ResourceManager::getOptimalMineralFieldForWorker(BWAPI::Unit* worker)
 {
     assert(mineralFields.size() > 0);
     std::set<MineralField*> mineralFields = getMineralFieldsNearStartLocation();
@@ -83,10 +80,11 @@ MineralField* ResourceManager::getOptimalMineralFieldForWorker(Unit* worker)
 std::set<MineralField*> ResourceManager::getMineralFieldsNearStartLocation()
 {
     std::set<MineralField*> mineralFieldsNearStartLocation;
-    BaseLocation* startLocation = Player::self()->getStartLocation();
+	BWTA::BaseLocation* startLocation = BWTA::getStartLocation(BWAPI::Broodwar->self());
+    assert(startLocation != NULL);// BWTA::getStartLocation was returning null before
     BOOST_FOREACH(MineralField& mineralField, mineralFields)
 	{
-        BOOST_FOREACH(Unit* unit, startLocation->getStaticMinerals())
+        BOOST_FOREACH(BWAPI::Unit* unit, startLocation->getStaticMinerals())
 		{
             if(mineralField.getMineralField() == unit)
                 mineralFieldsNearStartLocation.insert(&mineralField);
@@ -113,16 +111,16 @@ MineralField* ResourceManager::getMineralFieldWithLeastWorkers(std::set<MineralF
     return mineralFieldWithLeastWorkers;
 }
 
-void ResourceManager::unassignWorker(Unit* worker)
+void ResourceManager::unassignWorker(BWAPI::Unit* worker)
 {
-    std::map<Unit*, MineralField*>::iterator it = mineralWorkersMap.find(worker);
+    std::map<BWAPI::Unit*, MineralField*>::iterator it = mineralWorkersMap.find(worker);
     assert(it != mineralWorkersMap.end());
     it->second->unassignWorker(worker);
     mineralWorkersMap.erase(worker);
     worker->stop();
 }
 
-void ResourceManager::unassignMineralField(Unit* mineralField)
+void ResourceManager::unassignMineralField(BWAPI::Unit* mineralField)
 {
     MineralField field = MineralField(mineralField);
     if(mineralFields.find(field) != mineralFields.end())

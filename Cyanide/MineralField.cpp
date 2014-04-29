@@ -2,7 +2,7 @@
 
 MineralField* getMineralField(BWAPI::Unit* unit);
 
-MineralField::MineralField(Unit* mineralField) :
+MineralField::MineralField(BWAPI::Unit* mineralField) :
     mineralField(mineralField)
 {
     assert(mineralField->getType().isMineralField());
@@ -13,13 +13,13 @@ bool MineralField::operator<(const MineralField& rhs) const
     return mineralField < rhs.mineralField;
 }
 
-void MineralField::assignWorker(Unit* worker)
+void MineralField::assignWorker(BWAPI::Unit* worker)
 {
     assert(worker->getType().isWorker());
     assignedWorkers.insert(worker);
 }
 
-void MineralField::unassignWorker(Unit* worker)
+void MineralField::unassignWorker(BWAPI::Unit* worker)
 {
     assert(worker->getType().isWorker());
     assignedWorkers.erase(worker);
@@ -35,7 +35,7 @@ int MineralField::getRemainingMinerals() const
     return mineralField->getResources();
 }
 
-Unit* MineralField::getMineralField() const
+BWAPI::Unit* MineralField::getMineralField() const
 {
     return mineralField;
 }

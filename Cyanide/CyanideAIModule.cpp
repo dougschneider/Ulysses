@@ -1,11 +1,6 @@
 #include "CyanideAIModule.h"
 
-#include "Player.h"
-#include "Position.h"
 #include "ResourceManager.h"
-#include "Unit.h"
-#include "UnitType.h"
-#include "TechType.h"
 
 void CyanideAIModule::onStart()
 {
@@ -22,12 +17,6 @@ void CyanideAIModule::onStart()
 
 void CyanideAIModule::onEnd(bool isWinner)
 {
-    Player::emptyCache();
-    Unit::emptyCache();
-	UnitType::emptyCache();
-    TechType::emptyCache();
-    BaseLocation::emptyCache();
-
     Observable::notifyObserversOfEnd(isWinner);
 }
 
@@ -43,57 +32,57 @@ void CyanideAIModule::onSendText(std::string text)
 
 void CyanideAIModule::onReceiveText(BWAPI::Player* player, std::string text)
 {
-    Observable::notifyObserversOfReceiveText(Player::getPlayer(player), text);
+    Observable::notifyObserversOfReceiveText(player, text);
 }
 
 void CyanideAIModule::onPlayerLeft(BWAPI::Player* player)
 {
-    Observable::notifyObserversOfPlayerLeft(Player::getPlayer(player));
+    Observable::notifyObserversOfPlayerLeft(player);
 }
 
 void CyanideAIModule::onNukeDetect(BWAPI::Position target)
 {
-    Observable::notifyObserversOfNukeDetect(Position(target));
+    Observable::notifyObserversOfNukeDetect(BWAPI::Position(target));
 }
 
 void CyanideAIModule::onUnitDiscover(BWAPI::Unit* unit)
 {
-    Observable::notifyObserversOfUnitDiscover(Unit::getUnit(unit));
+    Observable::notifyObserversOfUnitDiscover(unit);
 }
 
 void CyanideAIModule::onUnitEvade(BWAPI::Unit* unit)
 {
-    Observable::notifyObserversOfUnitEvade(Unit::getUnit(unit));
+    Observable::notifyObserversOfUnitEvade(unit);
 }
 
 void CyanideAIModule::onUnitShow(BWAPI::Unit* unit)
 {
-    Observable::notifyObserversOfUnitShow(Unit::getUnit(unit));
+    Observable::notifyObserversOfUnitShow(unit);
 }
 
 void CyanideAIModule::onUnitHide(BWAPI::Unit* unit)
 {
-    Observable::notifyObserversOfUnitHide(Unit::getUnit(unit));
+    Observable::notifyObserversOfUnitHide(unit);
 }
 
 void CyanideAIModule::onUnitCreate(BWAPI::Unit* unit)
 {
-    Observable::notifyObserversOfUnitCreate(Unit::getUnit(unit));
+    Observable::notifyObserversOfUnitCreate(unit);
 }
 
 void CyanideAIModule::onUnitDestroy(BWAPI::Unit* unit)
 {
-    Observable::notifyObserversOfUnitDestroy(Unit::getUnit(unit));
+    Observable::notifyObserversOfUnitDestroy(unit);
 }
 
 void CyanideAIModule::onUnitMorph(BWAPI::Unit* unit)
 {
-    Observable::notifyObserversOfUnitMorph(Unit::getUnit(unit));
+    Observable::notifyObserversOfUnitMorph(unit);
 }
 
 void CyanideAIModule::onUnitRenegade(BWAPI::Unit* unit)
 {
-    Observable::notifyObserversOfUnitRenegade(Unit::getUnit(unit));
+    Observable::notifyObserversOfUnitRenegade(unit);
 }
 
 void CyanideAIModule::onSaveGame(std::string gameName)
@@ -103,5 +92,5 @@ void CyanideAIModule::onSaveGame(std::string gameName)
 
 void CyanideAIModule::onUnitComplete(BWAPI::Unit *unit)
 {
-    Observable::notifyObserversOfUnitComplete(Unit::getUnit(unit));
+    Observable::notifyObserversOfUnitComplete(unit);
 }

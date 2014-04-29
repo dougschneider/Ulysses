@@ -1,6 +1,6 @@
 #pragma once
 
-#include <BWAPI.h>
+#include "Common.h"
 
 #include "WorkerManager.h"
 #include "Observable.h"

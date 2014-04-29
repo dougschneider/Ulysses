@@ -16,9 +16,9 @@ void WorkerManager::setObservable(Observable* observable)
     observable->addObserver(this, Observable::UNIT_DESTROY);
 }
 
-void WorkerManager::handleUnitMorph(Unit* unit)
+void WorkerManager::handleUnitMorph(BWAPI::Unit* unit)
 {
-    if(unit->getType().isWorker() && unit->getPlayer() == *Player::self())
+	if(unit->getType().isWorker() && unit->getPlayer() == BWAPI::Broodwar->self())
 	{
         workers.insert(unit);
         ResourceManager::Instance().assignWorker(unit);
@@ -29,18 +29,18 @@ void WorkerManager::handleUnitMorph(Unit* unit)
 	}
 }
 
-void WorkerManager::handleUnitComplete(Unit* unit)
+void WorkerManager::handleUnitComplete(BWAPI::Unit* unit)
 {
-    if(unit->getType().isWorker() && unit->getPlayer() == *Player::self())
+	if(unit->getType().isWorker() && unit->getPlayer() == BWAPI::Broodwar->self())
 	{
         workers.insert(unit);
         ResourceManager::Instance().assignWorker(unit);
     }
 }
 
-void WorkerManager::handleUnitDestroy(Unit* unit)
+void WorkerManager::handleUnitDestroy(BWAPI::Unit* unit)
 {
-    if(unit->getType().isWorker() && unit->getPlayer() == *Player::self())
+	if(unit->getType().isWorker() && unit->getPlayer() == BWAPI::Broodwar->self())
 	{
         workers.erase(unit);
         ResourceManager::Instance().unassignWorker(unit);

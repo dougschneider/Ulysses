@@ -2,7 +2,6 @@
 
 #include "Common.h"
 #include "Observer.h"
-#include "Unit.h"
 
 class WorkerManager : public Observer
 {
@@ -11,11 +10,11 @@ public:
 
     void setObservable(Observable* observable);
 
-    void handleUnitMorph(Unit* unit);
-    void handleUnitComplete(Unit* unit);
-    void handleUnitDestroy(Unit* unit);
+    void handleUnitMorph(BWAPI::Unit* unit);
+    void handleUnitComplete(BWAPI::Unit* unit);
+    void handleUnitDestroy(BWAPI::Unit* unit);
 
 private:
-    std::set<Unit*> workers;
+    std::set<BWAPI::Unit*> workers;
 };
 

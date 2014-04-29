@@ -48,7 +48,7 @@ void Observable::notifyObserversOfSendText(std::string text)
 	}
 }
 
-void Observable::notifyObserversOfReceiveText(Player* player, std::string text)
+void Observable::notifyObserversOfReceiveText(BWAPI::Player* player, std::string text)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[RECEIVE_TEXT])
 	{
@@ -56,7 +56,7 @@ void Observable::notifyObserversOfReceiveText(Player* player, std::string text)
 	}
 }
 
-void Observable::notifyObserversOfPlayerLeft(Player* player)
+void Observable::notifyObserversOfPlayerLeft(BWAPI::Player* player)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[PLAYER_LEFT])
 	{
@@ -64,7 +64,7 @@ void Observable::notifyObserversOfPlayerLeft(Player* player)
 	}
 }
 
-void Observable::notifyObserversOfNukeDetect(Position position)
+void Observable::notifyObserversOfNukeDetect(BWAPI::Position position)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[NUKE_DETECT])
 	{
@@ -72,7 +72,7 @@ void Observable::notifyObserversOfNukeDetect(Position position)
 	}
 }
 
-void Observable::notifyObserversOfUnitDiscover(Unit* unit)
+void Observable::notifyObserversOfUnitDiscover(BWAPI::Unit* unit)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_DISCOVER])
 	{
@@ -80,7 +80,7 @@ void Observable::notifyObserversOfUnitDiscover(Unit* unit)
 	}
 }
 
-void Observable::notifyObserversOfUnitEvade(Unit* unit)
+void Observable::notifyObserversOfUnitEvade(BWAPI::Unit* unit)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_EVADE])
 	{
@@ -88,7 +88,7 @@ void Observable::notifyObserversOfUnitEvade(Unit* unit)
 	}
 }
 
-void Observable::notifyObserversOfUnitShow(Unit* unit)
+void Observable::notifyObserversOfUnitShow(BWAPI::Unit* unit)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_SHOW])
 	{
@@ -96,7 +96,7 @@ void Observable::notifyObserversOfUnitShow(Unit* unit)
 	}
 }
 
-void Observable::notifyObserversOfUnitHide(Unit* unit)
+void Observable::notifyObserversOfUnitHide(BWAPI::Unit* unit)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_HIDE])
 	{
@@ -104,7 +104,7 @@ void Observable::notifyObserversOfUnitHide(Unit* unit)
 	}
 }
 
-void Observable::notifyObserversOfUnitCreate(Unit* unit)
+void Observable::notifyObserversOfUnitCreate(BWAPI::Unit* unit)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_CREATE])
 	{
@@ -112,7 +112,7 @@ void Observable::notifyObserversOfUnitCreate(Unit* unit)
 	}
 }
 
-void Observable::notifyObserversOfUnitDestroy(Unit* unit)
+void Observable::notifyObserversOfUnitDestroy(BWAPI::Unit* unit)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_DESTROY])
 	{
@@ -120,7 +120,7 @@ void Observable::notifyObserversOfUnitDestroy(Unit* unit)
 	}
 }
 
-void Observable::notifyObserversOfUnitMorph(Unit* unit)
+void Observable::notifyObserversOfUnitMorph(BWAPI::Unit* unit)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_MORPH])
 	{
@@ -128,7 +128,7 @@ void Observable::notifyObserversOfUnitMorph(Unit* unit)
 	}
 }
 
-void Observable::notifyObserversOfUnitRenegade(Unit* unit)
+void Observable::notifyObserversOfUnitRenegade(BWAPI::Unit* unit)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_RENEGADE])
 	{
@@ -144,7 +144,7 @@ void Observable::notifyObserversOfSaveGame(std::string gameName)
 	}
 }
 
-void Observable::notifyObserversOfUnitComplete(Unit* unit)
+void Observable::notifyObserversOfUnitComplete(BWAPI::Unit* unit)
 {
 	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_COMPLETE])
 	{

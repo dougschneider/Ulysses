@@ -1,5 +1,9 @@
 #pragma once
 
+// Starcraft
+#include <BWAPI.h>
+#include <BWTA.h>
+
 // BOOST
 #include <boost\foreach.hpp>
 

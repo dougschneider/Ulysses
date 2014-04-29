@@ -1,7 +1,8 @@
 #pragma once
 
+#include "Common.h"
+
 #include "Observer.h"
-#include "Unit.h"
 #include "MineralField.h"
 
 class ResourceManager : public Observer
@@ -11,10 +12,10 @@ public:
 
     void emptyCache();
     void setObservable(Observable* observable);
-    void assignWorker(Unit* worker);
-    void unassignWorker(Unit* worker);
-    void assignMineralField(Unit* mineralField);
-    void unassignMineralField(Unit* mineralField);
+    void assignWorker(BWAPI::Unit* worker);
+    void unassignWorker(BWAPI::Unit* worker);
+    void assignMineralField(BWAPI::Unit* mineralField);
+    void unassignMineralField(BWAPI::Unit* mineralField);
 
     void handleStart();
     void handleEnd();
@@ -22,11 +23,11 @@ public:
 
 private:
 
-    MineralField* getOptimalMineralFieldForWorker(Unit* worker);
+    MineralField* getOptimalMineralFieldForWorker(BWAPI::Unit* worker);
     std::set<MineralField*> getMineralFieldsNearStartLocation();
     MineralField* getMineralFieldWithLeastWorkers(std::set<MineralField*> mineralFields);
     void ensureWorkersAreGatheringResources();
 
-    std::map<Unit*, MineralField*> mineralWorkersMap;
+    std::map<BWAPI::Unit*, MineralField*> mineralWorkersMap;
     std::set<MineralField> mineralFields;
 };
