@@ -2,23 +2,21 @@
 
 #include <algorithm>
 
-void Observable::addObserver(Observer* observer, NotificationType type)
+void Observable::addObserver(Observer* observer)
 {
-    std::vector<Observer*>::iterator it = std::find(categorizedObservers[type].begin(), categorizedObservers[type].end(), observer);
-    assert(it == categorizedObservers[type].end());
-    categorizedObservers[type].push_back(observer);
+	assert(observers.find(observer) == observers.end());
+    observers.insert(observer);
 }
 
-void Observable::removeObserver(Observer* observer, NotificationType type)
+void Observable::removeObserver(Observer* observer)
 {
-    std::vector<Observer*>::iterator it = std::find(categorizedObservers[type].begin(), categorizedObservers[type].end(), observer);
-    assert(it != categorizedObservers[type].end());
-    categorizedObservers[type].erase(it);
+	assert(observers.find(observer) != observers.end());
+	observers.erase(observer);
 }
 
 void Observable::notifyObserversOfStart()
 {
-    BOOST_FOREACH(Observer* observer, categorizedObservers[START])
+    BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleStart();
 	}
@@ -26,7 +24,7 @@ void Observable::notifyObserversOfStart()
 
 void Observable::notifyObserversOfEnd(bool isWinner)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[END])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleEnd(isWinner);
 	}
@@ -34,7 +32,7 @@ void Observable::notifyObserversOfEnd(bool isWinner)
 
 void Observable::notifyObserversOfFrame()
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[FRAME])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleFrame();
 	}
@@ -42,7 +40,7 @@ void Observable::notifyObserversOfFrame()
 
 void Observable::notifyObserversOfSendText(std::string text)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[SEND_TEXT])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleSendText(text);
 	}
@@ -50,7 +48,7 @@ void Observable::notifyObserversOfSendText(std::string text)
 
 void Observable::notifyObserversOfReceiveText(BWAPI::Player* player, std::string text)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[RECEIVE_TEXT])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleReceiveText(player, text);
 	}
@@ -58,7 +56,7 @@ void Observable::notifyObserversOfReceiveText(BWAPI::Player* player, std::string
 
 void Observable::notifyObserversOfPlayerLeft(BWAPI::Player* player)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[PLAYER_LEFT])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handlePlayerLeft(player);
 	}
@@ -66,7 +64,7 @@ void Observable::notifyObserversOfPlayerLeft(BWAPI::Player* player)
 
 void Observable::notifyObserversOfNukeDetect(BWAPI::Position position)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[NUKE_DETECT])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleNukeDetect(position);
 	}
@@ -74,7 +72,7 @@ void Observable::notifyObserversOfNukeDetect(BWAPI::Position position)
 
 void Observable::notifyObserversOfUnitDiscover(BWAPI::Unit* unit)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_DISCOVER])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleUnitDiscover(unit);
 	}
@@ -82,7 +80,7 @@ void Observable::notifyObserversOfUnitDiscover(BWAPI::Unit* unit)
 
 void Observable::notifyObserversOfUnitEvade(BWAPI::Unit* unit)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_EVADE])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleUnitEvade(unit);
 	}
@@ -90,7 +88,7 @@ void Observable::notifyObserversOfUnitEvade(BWAPI::Unit* unit)
 
 void Observable::notifyObserversOfUnitShow(BWAPI::Unit* unit)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_SHOW])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleUnitShow(unit);
 	}
@@ -98,7 +96,7 @@ void Observable::notifyObserversOfUnitShow(BWAPI::Unit* unit)
 
 void Observable::notifyObserversOfUnitHide(BWAPI::Unit* unit)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_HIDE])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleUnitHide(unit);
 	}
@@ -106,7 +104,7 @@ void Observable::notifyObserversOfUnitHide(BWAPI::Unit* unit)
 
 void Observable::notifyObserversOfUnitCreate(BWAPI::Unit* unit)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_CREATE])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleUnitCreate(unit);
 	}
@@ -114,7 +112,7 @@ void Observable::notifyObserversOfUnitCreate(BWAPI::Unit* unit)
 
 void Observable::notifyObserversOfUnitDestroy(BWAPI::Unit* unit)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_DESTROY])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleUnitDestroy(unit);
 	}
@@ -122,7 +120,7 @@ void Observable::notifyObserversOfUnitDestroy(BWAPI::Unit* unit)
 
 void Observable::notifyObserversOfUnitMorph(BWAPI::Unit* unit)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_MORPH])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleUnitMorph(unit);
 	}
@@ -130,7 +128,7 @@ void Observable::notifyObserversOfUnitMorph(BWAPI::Unit* unit)
 
 void Observable::notifyObserversOfUnitRenegade(BWAPI::Unit* unit)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_RENEGADE])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleUnitRenegade(unit);
 	}
@@ -138,7 +136,7 @@ void Observable::notifyObserversOfUnitRenegade(BWAPI::Unit* unit)
 
 void Observable::notifyObserversOfSaveGame(std::string gameName)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[SAVE_GAME])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleSaveGame(gameName);
 	}
@@ -146,7 +144,7 @@ void Observable::notifyObserversOfSaveGame(std::string gameName)
 
 void Observable::notifyObserversOfUnitComplete(BWAPI::Unit* unit)
 {
-	BOOST_FOREACH(Observer* observer, categorizedObservers[UNIT_COMPLETE])
+	BOOST_FOREACH(Observer* observer, observers)
 	{
         observer->handleUnitComplete(unit);
 	}

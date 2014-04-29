@@ -10,9 +10,7 @@ WorkerManager& WorkerManager::Instance()
 WorkerManager::WorkerManager()
 {
     assert(CyanideAIModule::ai != NULL);
-    CyanideAIModule::ai->addObserver(this, Observable::UNIT_MORPH);
-    CyanideAIModule::ai->addObserver(this, Observable::UNIT_COMPLETE);
-    CyanideAIModule::ai->addObserver(this, Observable::UNIT_DESTROY);
+    CyanideAIModule::ai->addObserver(this);
 }
 
 void WorkerManager::handleUnitMorph(BWAPI::Unit* unit)

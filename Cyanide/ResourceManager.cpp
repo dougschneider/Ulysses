@@ -9,8 +9,7 @@ ResourceManager& ResourceManager::Instance()
 ResourceManager::ResourceManager()
 {
     assert(CyanideAIModule::ai != NULL);
-    CyanideAIModule::ai->addObserver(this, Observable::START);
-    CyanideAIModule::ai->addObserver(this, Observable::FRAME);
+    CyanideAIModule::ai->addObserver(this);
 }
 
 void ResourceManager::handleStart()
