@@ -8,6 +8,8 @@
 class CyanideAIModule : public BWAPI::AIModule, public Observable
 {
 public:
+    static CyanideAIModule* ai;
+
     virtual void onStart();
     virtual void onEnd(bool isWinner);
     virtual void onFrame();

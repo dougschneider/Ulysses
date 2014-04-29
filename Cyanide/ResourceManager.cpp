@@ -6,12 +6,11 @@ ResourceManager& ResourceManager::Instance()
     return instance;
 }
 
-void ResourceManager::setObservable(Observable* observable)
+ResourceManager::ResourceManager()
 {
-    Observer::setObservable(observable);
-
-    observable->addObserver(this, Observable::START);
-    observable->addObserver(this, Observable::FRAME);
+    assert(CyanideAIModule::ai != NULL);
+    CyanideAIModule::ai->addObserver(this, Observable::START);
+    CyanideAIModule::ai->addObserver(this, Observable::FRAME);
 }
 
 void ResourceManager::handleStart()

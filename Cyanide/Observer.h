@@ -7,8 +7,6 @@ class Observable;
 class Observer
 {
 public:
-    virtual void setObservable(Observable* observable);
-
     virtual void handleStart();
     virtual void handleEnd(bool isWinner);
     virtual void handleFrame();
@@ -26,7 +24,4 @@ public:
     virtual void handleUnitRenegade(BWAPI::Unit* unit);
     virtual void handleSaveGame(std::string gameName);
     virtual void handleUnitComplete(BWAPI::Unit* unit);
-
-protected:
-    Observable* observable;
 };

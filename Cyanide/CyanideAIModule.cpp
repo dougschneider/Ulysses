@@ -2,6 +2,8 @@
 
 #include "ResourceManager.h"
 
+CyanideAIModule* CyanideAIModule::ai = NULL;
+
 void CyanideAIModule::onStart()
 {
     BWAPI::Broodwar->enableFlag(BWAPI::Flag::UserInput);
@@ -9,8 +11,9 @@ void CyanideAIModule::onStart()
     BWTA::readMap();
     BWTA::analyze();
 
-    WorkerManager::Instance().setObservable(this);
-    ResourceManager::Instance().setObservable(this);
+    // initialize the managers so they recieve all event notifications
+    WorkerManager::Instance();
+    ResourceManager::Instance();
 
     Observable::notifyObserversOfStart();
 }

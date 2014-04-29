@@ -1,10 +1,5 @@
 #include "Observer.h"
 
-void Observer::setObservable(Observable* observable)
-{
-    this->observable = observable;
-}
-
 void Observer::handleStart()
 {
 

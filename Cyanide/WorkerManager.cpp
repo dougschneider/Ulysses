@@ -7,13 +7,12 @@ WorkerManager& WorkerManager::Instance()
     return instance;
 }
 
-void WorkerManager::setObservable(Observable* observable)
+WorkerManager::WorkerManager()
 {
-    Observer::setObservable(observable);
-
-    observable->addObserver(this, Observable::UNIT_MORPH);
-    observable->addObserver(this, Observable::UNIT_COMPLETE);
-    observable->addObserver(this, Observable::UNIT_DESTROY);
+    assert(CyanideAIModule::ai != NULL);
+    CyanideAIModule::ai->addObserver(this, Observable::UNIT_MORPH);
+    CyanideAIModule::ai->addObserver(this, Observable::UNIT_COMPLETE);
+    CyanideAIModule::ai->addObserver(this, Observable::UNIT_DESTROY);
 }
 
 void WorkerManager::handleUnitMorph(BWAPI::Unit* unit)

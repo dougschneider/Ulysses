@@ -2,6 +2,7 @@
 
 #include "Common.h"
 
+#include "CyanideAIModule.h"
 #include "Observer.h"
 #include "MineralField.h"
 
@@ -11,7 +12,6 @@ public:
     static ResourceManager& Instance();
 
     void emptyCache();
-    void setObservable(Observable* observable);
     void assignWorker(BWAPI::Unit* worker);
     void unassignWorker(BWAPI::Unit* worker);
     void assignMineralField(BWAPI::Unit* mineralField);
@@ -22,6 +22,8 @@ public:
     void handleFrame();
 
 private:
+
+    ResourceManager();
 
     MineralField* getOptimalMineralFieldForWorker(BWAPI::Unit* worker);
     std::set<MineralField*> getMineralFieldsNearStartLocation();
