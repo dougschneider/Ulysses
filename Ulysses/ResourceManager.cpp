@@ -8,8 +8,8 @@ ResourceManager& ResourceManager::Instance()
 
 ResourceManager::ResourceManager()
 {
-    assert(CyanideAIModule::ai != NULL);
-    CyanideAIModule::ai->addObserver(this);
+    assert(UlyssesAIModule::ai != NULL);
+    UlyssesAIModule::ai->addObserver(this);
 }
 
 void ResourceManager::handleStart()

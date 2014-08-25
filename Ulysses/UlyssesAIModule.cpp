@@ -2,9 +2,9 @@
 
 #include "ResourceManager.h"
 
-CyanideAIModule* CyanideAIModule::ai = NULL;
+UlyssesAIModule* UlyssesAIModule::ai = NULL;
 
-void CyanideAIModule::onStart()
+void UlyssesAIModule::onStart()
 {
     BWAPI::Broodwar->enableFlag(BWAPI::Flag::UserInput);
 
@@ -18,82 +18,82 @@ void CyanideAIModule::onStart()
     Observable::notifyObserversOfStart();
 }
 
-void CyanideAIModule::onEnd(bool isWinner)
+void UlyssesAIModule::onEnd(bool isWinner)
 {
     Observable::notifyObserversOfEnd(isWinner);
 }
 
-void CyanideAIModule::onFrame()
+void UlyssesAIModule::onFrame()
 {
     Observable::notifyObserversOfFrame();
 }
 
-void CyanideAIModule::onSendText(std::string text)
+void UlyssesAIModule::onSendText(std::string text)
 {
     Observable::notifyObserversOfSendText(text);
 }
 
-void CyanideAIModule::onReceiveText(BWAPI::Player* player, std::string text)
+void UlyssesAIModule::onReceiveText(BWAPI::Player* player, std::string text)
 {
     Observable::notifyObserversOfReceiveText(player, text);
 }
 
-void CyanideAIModule::onPlayerLeft(BWAPI::Player* player)
+void UlyssesAIModule::onPlayerLeft(BWAPI::Player* player)
 {
     Observable::notifyObserversOfPlayerLeft(player);
 }
 
-void CyanideAIModule::onNukeDetect(BWAPI::Position target)
+void UlyssesAIModule::onNukeDetect(BWAPI::Position target)
 {
     Observable::notifyObserversOfNukeDetect(BWAPI::Position(target));
 }
 
-void CyanideAIModule::onUnitDiscover(BWAPI::Unit* unit)
+void UlyssesAIModule::onUnitDiscover(BWAPI::Unit* unit)
 {
     Observable::notifyObserversOfUnitDiscover(unit);
 }
 
-void CyanideAIModule::onUnitEvade(BWAPI::Unit* unit)
+void UlyssesAIModule::onUnitEvade(BWAPI::Unit* unit)
 {
     Observable::notifyObserversOfUnitEvade(unit);
 }
 
-void CyanideAIModule::onUnitShow(BWAPI::Unit* unit)
+void UlyssesAIModule::onUnitShow(BWAPI::Unit* unit)
 {
     Observable::notifyObserversOfUnitShow(unit);
 }
 
-void CyanideAIModule::onUnitHide(BWAPI::Unit* unit)
+void UlyssesAIModule::onUnitHide(BWAPI::Unit* unit)
 {
     Observable::notifyObserversOfUnitHide(unit);
 }
 
-void CyanideAIModule::onUnitCreate(BWAPI::Unit* unit)
+void UlyssesAIModule::onUnitCreate(BWAPI::Unit* unit)
 {
     Observable::notifyObserversOfUnitCreate(unit);
 }
 
-void CyanideAIModule::onUnitDestroy(BWAPI::Unit* unit)
+void UlyssesAIModule::onUnitDestroy(BWAPI::Unit* unit)
 {
     Observable::notifyObserversOfUnitDestroy(unit);
 }
 
-void CyanideAIModule::onUnitMorph(BWAPI::Unit* unit)
+void UlyssesAIModule::onUnitMorph(BWAPI::Unit* unit)
 {
     Observable::notifyObserversOfUnitMorph(unit);
 }
 
-void CyanideAIModule::onUnitRenegade(BWAPI::Unit* unit)
+void UlyssesAIModule::onUnitRenegade(BWAPI::Unit* unit)
 {
     Observable::notifyObserversOfUnitRenegade(unit);
 }
 
-void CyanideAIModule::onSaveGame(std::string gameName)
+void UlyssesAIModule::onSaveGame(std::string gameName)
 {
     Observable::notifyObserversOfSaveGame(gameName);
 }
 
-void CyanideAIModule::onUnitComplete(BWAPI::Unit *unit)
+void UlyssesAIModule::onUnitComplete(BWAPI::Unit *unit)
 {
     Observable::notifyObserversOfUnitComplete(unit);
 }

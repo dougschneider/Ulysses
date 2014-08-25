@@ -5,10 +5,10 @@
 #include "WorkerManager.h"
 #include "Observable.h"
 
-class CyanideAIModule : public BWAPI::AIModule, public Observable
+class UlyssesAIModule : public BWAPI::AIModule, public Observable
 {
 public:
-    static CyanideAIModule* ai;
+    static UlyssesAIModule* ai;
 
     virtual void onStart();
     virtual void onEnd(bool isWinner);

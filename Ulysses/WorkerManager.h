@@ -1,6 +1,6 @@
 #pragma once
 
-#include "CyanideAIModule.h"
+#include "UlyssesAIModule.h"
 #include "Common.h"
 #include "Observer.h"
 

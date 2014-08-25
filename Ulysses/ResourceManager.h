@@ -2,7 +2,7 @@
 
 #include "Common.h"
 
-#include "CyanideAIModule.h"
+#include "UlyssesAIModule.h"
 #include "Observer.h"
 #include "MineralField.h"
 

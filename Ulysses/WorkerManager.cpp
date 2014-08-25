@@ -9,8 +9,8 @@ WorkerManager& WorkerManager::Instance()
 
 WorkerManager::WorkerManager()
 {
-    assert(CyanideAIModule::ai != NULL);
-    CyanideAIModule::ai->addObserver(this);
+    assert(UlyssesAIModule::ai != NULL);
+    UlyssesAIModule::ai->addObserver(this);
 }
 
 void WorkerManager::handleUnitMorph(BWAPI::Unit* unit)
