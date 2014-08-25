@@ -6,7 +6,7 @@
 
 #include <BWAPI.h>
 
-#include "CyanideAIModule.h"
+#include "UlyssesAIModule.h"
 namespace BWAPI { Game* Broodwar; }
 BOOL APIENTRY DllMain( HANDLE hModule, 
                        DWORD  ul_reason_for_call, 
@@ -30,7 +30,7 @@ BOOL APIENTRY DllMain( HANDLE hModule,
  extern "C" __declspec(dllexport) BWAPI::AIModule* newAIModule(BWAPI::Game* game)
 {
     BWAPI::Broodwar=game;
-    CyanideAIModule *AI = new CyanideAIModule();
-    CyanideAIModule::ai = AI;
+    UlyssesAIModule *AI = new UlyssesAIModule();
+    UlyssesAIModule::ai = AI;
     return AI;
 }

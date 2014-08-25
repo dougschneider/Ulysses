@@ -1,4 +1,4 @@
-#include "CyanideAIModule.h"
+#include "UlyssesAIModule.h"
 
 #include "ResourceManager.h"
 
